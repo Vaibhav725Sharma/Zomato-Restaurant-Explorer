@@ -1,72 +1,125 @@
-# Zomato-Restaurant-Explorer
+# Restaurant Recommendation and Insights Dashboard
 
-Overview
-Zomato Restaurant Explorer is an interactive data visualization app built using Streamlit that helps users explore restaurant data. It leverages data from the Zomato dataset to analyze restaurant ratings, cuisines, locations, and more. The project is designed to provide valuable insights into restaurant trends and recommend eateries based on user preferences.
+An interactive web application that provides personalized restaurant recommendations and insights into restaurant trends, leveraging the Zomato dataset. This project integrates machine learning, natural language processing, and data visualization to deliver a comprehensive dashboard.
 
-Key Features
-Restaurant Filter: Filter restaurants by city, cuisine, online orders, or table booking availability.
-Visualization Dashboard: View visual representations of restaurant ratings, average cost, and the number of votes across different cities and cuisines.
-Recommendation System: Get personalized restaurant recommendations based on location and rating filters.
-Top Restaurants: Identify top-rated restaurants in various categories like "Best for Delivery," "Best for Dining," etc.
-Data Analysis: Analyze trends in restaurant pricing, popular cuisines, and customer reviews.
-Technologies Used
-Streamlit: For building the interactive web app.
-Pandas: For data manipulation and processing.
-Matplotlib / Seaborn: For visualizations.
-Scikit-learn: For machine learning models (optional, for recommendations or clustering).
-Dataset
-The project uses the Zomato Restaurant dataset, which contains the following key columns:
+## Project Features
 
-url, address, name, online_order, book_table, rate, votes, location, rest_type, dish_liked, cuisines, approx_cost(for two people), reviews_list, menu_item, listed_in(type), listed_in(city).
-Installation
-To run the Zomato Restaurant Explorer app on your local machine, follow these steps:
+1. **Restaurant Recommendations**
 
-Clone the repository:
+   - Personalized suggestions based on user inputs like location, cuisine, and budget.
+   - Content-based recommendation system using features like cuisine type, ratings, and location.
 
-bash
-Copy code
-git clone https://github.com/yourusername/Zomato-Restaurant-Explorer.git
-cd Zomato-Restaurant-Explorer
-Create a virtual environment (optional, but recommended):
+2. **Insights and Visualizations**
 
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate # On Windows, use `venv\Scripts\activate`
-Install dependencies:
+   - Interactive visualizations showing trends in ratings, costs, popular cuisines, and more.
+   - Analysis of restaurant density, cost variations, and cuisine popularity by location.
 
-bash
-Copy code
-pip install -r requirements.txt
-Run the app:
+3. **Sentiment Analysis**
 
-bash
-Copy code
-streamlit run app/main.py
-Open the app in your browser at localhost:8501.
+   - Sentiment analysis on customer reviews to determine trends and feedback.
+   - Visual representation of sentiments for popular dishes and restaurants.
 
-How to Use
-Upon loading the app, users can choose filters based on city, cuisine, and online order availability.
-Visualizations will update dynamically based on selected filters, providing insights such as average restaurant ratings, cost for two people, and the number of votes for each restaurant.
-Users can also get personalized restaurant recommendations based on their preferred criteria.
-Project Structure
-bash
-Copy code
-Zomato-Restaurant-Explorer/
-├── app/
-│ └── main.py # Streamlit app for data visualization and recommendations
+4. **Streamlit Dashboard**
+   - Dynamic, user-friendly interface with pages for insights, recommendations, and sentiment analysis.
+   - Sidebar inputs for refining user preferences.
+
+## Folder Structure
+
+```
+restaurant_dashboard/
 ├── data/
-│ └── zomato.csv # Zomato dataset (51717 rows, 17 columns)
+│   └── zomato.csv               # Dataset
 ├── notebooks/
-│ └── data_cleaning.py # Script for cleaning and preprocessing the data
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
-Future Improvements
-Advanced Recommendation System: Implement a collaborative filtering or content-based recommendation model.
-User Authentication: Allow users to save their preferences and previous searches.
-Geospatial Analysis: Incorporate maps to visualize restaurant locations.
-Contributing
-Feel free to fork the repository and contribute to the project! If you find bugs or have ideas for improvements, open an issue or create a pull request.
+│   ├── eda.ipynb                # Exploratory Data Analysis
+│   └── model_dev.ipynb          # Recommendation and Sentiment Model Development
+├── app/
+│   ├── pages/
+│   │   ├── insights.py          # Page for Insights
+│   │   ├── recommendations.py   # Page for Recommendations
+│   │   └── reviews.py           # Page for Review Sentiment Analysis
+│   └── main.py                  # Main Streamlit app script
+├── models/
+│   ├── recommendation_model.pkl # Trained Recommendation Model
+│   └── sentiment_model.pkl      # Trained Sentiment Analysis Model
+├── static/
+│   ├── css/                     # Optional CSS for styling Streamlit
+│   ├── images/                  # Images for branding
+├── utils/
+│   ├── preprocessing.py         # Functions for data cleaning and preprocessing
+│   ├── eda_helpers.py           # Helper functions for visualizations
+│   └── recommend.py             # Recommendation engine logic
+├── requirements.txt             # Dependencies
+└── README.md                    # Project documentation
+```
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Key Technologies
+
+- **Backend and Analysis:** Pandas, NumPy, Scikit-learn
+- **Visualization:** Matplotlib, Seaborn, Plotly
+- **Natural Language Processing:** NLTK, Spacy, VADER
+- **Frontend:** Streamlit
+
+## Installation and Usage
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/YourUsername/restaurant_dashboard.git
+   cd restaurant_dashboard
+   ```
+
+2. **Create a Virtual Environment**
+
+   ```bash
+   python -m venv env
+   source env/bin/activate  # On Windows: env\Scripts\activate
+   ```
+
+3. **Install Dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Application**
+   ```bash
+   streamlit run app/main.py
+   ```
+
+## Features in Detail
+
+### 1. Recommendations
+
+- Input preferences such as location, cuisine, and budget.
+- Display the top 5 recommended restaurants.
+
+### 2. Insights
+
+- Visualize trends such as:
+  - Top cuisines in a city.
+  - Rating distributions.
+  - Cost variations across locations.
+
+### 3. Sentiment Analysis
+
+- Analyze and display customer feedback trends.
+- Sentiment analysis for specific dishes or restaurants.
+
+## Deployment
+
+The app can be deployed using platforms like **Streamlit Cloud** or **Render**. Ensure the `Procfile` and environment dependencies are correctly configured.
+
+## Future Enhancements
+
+- **Advanced Recommendations:** Incorporate collaborative filtering for personalized suggestions.
+- **Interactive Maps:** Display restaurant locations with advanced filtering options.
+- **Real-Time Updates:** Allow users to upload new data dynamically.
+
+## Acknowledgments
+
+This project is inspired by the Zomato dataset and aims to provide valuable insights and recommendations for food enthusiasts and business owners.
+
+---
+
+**Author:** Vaibhav Sharma  
+For any queries or contributions, feel free to reach out!
